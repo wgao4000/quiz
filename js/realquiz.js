@@ -1,4 +1,6 @@
 $(document).ready(function(){ 
+  var values=["Get Started","submit your answer","next question","see your result","try again"];
+  $(".holdplace").append(addbuttons(values));
   var score=0;
   var name1="question1";
   var q1part1="1. Many people have devised methods ___ they have measured time.";
@@ -64,138 +66,48 @@ $(document).ready(function(){
       $(".button01").show();
   	  $(".holdplace").prepend("<h1>Quiz Question One</h1>"+question1.question_con());
   	  $("img").hide();
-    });
-   $(".button001").click(function(){
-       var selected=$("input:radio[name="+question1.name+"]").is(":checked");
-       if(selected){
-   	   	  var selected_val=$("input:radio[name="+question1.name+"]:checked").val();
-   	   	  $(".button01").hide();
-   	   	  $(".button02").show();
-   	   	  if(selected_val==question1.answer){
-            $(".button02").append("<div class='answers'>Correct, good job!</div>");
-            score+=1;
-          }
-          else
-            $(".button02").append("<div class='answers'>Sorry, your answer is incorrect.</div>");
-          $("input:radio[name="+question1.name+"]").attr('disabled',true);
-       }
-  	   else
-  	      alert("Please select an answer first."); 
-    });
-   $(".button002").click(function(){
-   	  $("input:radio[name="+question1.name+"]:checked").removeAttr('checked');
-      $(".button02").hide();
-   	  $("h1").hide();
-   	  $("p").hide();
-   	  $(".Question1").hide();
-   	  $(".button11").show();
-      $(".holdplace").prepend("<h1>Quiz Question Two</h1>"+question2.question_con());  
-   });
-   $(".button101").click(function(){
-   	   var selected=$("input:radio[name="+question2.name+"]").is(":checked");
-   	   if(selected){
-   	   	  var selected_val=$("input:radio[name="+question2.name+"]:checked").val();
-   	   	  $(".button11").hide();
-   	   	  $(".button12").show();
-   	   	  if(selected_val==question2.answer){
-            $(".button12").append("<div class='answers'>Correct, good job!</div>");
-            score+=1;
-          }  
-          else
-            $(".button12").append("<div class='answers'>Sorry, your answer is incorrect.</div>");
-          $("input:radio[name="+question2.name+"]").attr('disabled',true);
-       }
-  	   else
-  	      alert("Please select an answer first."); 
-    });
-    $(".button102").click(function(){
-      $("input:radio[name="+question2.name+"]:checked").removeAttr('checked');
-   	  $(".button12").hide();
-   	  $("h1").hide();
-   	  $("p").hide();
-   	  $(".Question1").hide();
-   	  $(".button21").show();
-      $(".holdplace").prepend("<h1>Quiz Question Three</h1>"+question3.question_con());  
-   });
-   $(".button201").click(function(){
-   	   var selected=$("input:radio[name="+question3.name+"]").is(":checked");
-   	   if(selected){
-   	   	  var selected_val=$("input:radio[name="+question3.name+"]:checked").val();
-   	   	  $(".button21").hide();
-   	   	  $(".button22").show();
-   	   	  if(selected_val==question3.answer){
-            $(".button22").append("<div class='answers'>Correct, good job!</div>");
-            score+=1;
-          }
-          else
-            $(".button22").append("<div class='answers'>Sorry, your answer is incorrect.</div>");
-          $("input:radio[name="+question3.name+"]").attr('disabled',true);
-  	   }
-  	   else
-  	      alert("Please select an answer first."); 
-    });
-    $(".button202").click(function(){
-      $("input:radio[name="+question3.name+"]:checked").removeAttr('checked');
-   	  $(".button22").hide();
-   	  $("h1").hide();
-   	  $("p").hide();
-   	  $(".Question1").hide();
-   	  $(".button31").show();
-      $(".holdplace").prepend("<h1>Quiz Question Four</h1>"+question4.question_con());  
-   });
-   $(".button301").click(function(){
-   	   var selected=$("input:radio[name="+question4.name+"]").is(":checked");
-   	   if(selected){
-   	   	  var selected_val=$("input:radio[name="+question4.name+"]:checked").val();
-   	   	  $(".button31").hide();
-   	   	  $(".button32").show();
-   	   	  if(selected_val==question4.answer){
-            $(".button32").append("<div class='answers'>Correct, good job!</div>");
-            score+=1;
-          }
-          else
-            $(".button32").append("<div class='answers'>Sorry, your answer is incorrect.</div>");
-          $("input:radio[name="+question4.name+"]").attr('disabled',true);
-  	   }
-  	   else
-  	      alert("Please select an answer first."); 
-    });
-    $(".button302").click(function(){
-      $("input:radio[name="+question4.name+"]:checked").removeAttr('checked');
-   	  $(".button32").hide();
-   	  $("h1").hide();
-   	  $("p").hide();
-   	  $(".Question1").hide();
-   	  $(".button41").show();
-      $(".holdplace").prepend("<h1>Quiz Question Five</h1>"+question5.question_con());  
-    });
-    $(".button401").click(function(){
-   	   var selected=$("input:radio[name="+question5.name+"]").is(":checked");
-   	   if(selected){
-   	   	  var selected_val=$("input:radio[name="+question5.name+"]:checked").val();
-   	   	  $(".button41").hide();
-   	   	  $(".button42").show();
-   	   	  if(selected_val==question5.answer){
-            $(".button42").append("<div class='answers'>Correct, good job!</div>");
-            score+=1;
-          }
-          else
-            $(".button42").append("<div class='answers'>Sorry, your answer is incorrect.</div>");
-          $("input:radio[name="+question5.name+"]").attr('disabled',true);
-       }
-  	   else
-  	      alert("Please select an answer first."); 
-    });
-    $(".button402").click(function(){
-      $("input:radio[name="+question5.name+"]:checked").removeAttr('checked');
-   	  $(".button42").hide();
-   	  $("h1").hide();
-   	  $("p").hide();
-   	  $(".Question1").hide();
-   	  $(".button51").show();
-      $(".holdplace").prepend("<h1>Congratulations! You have finished your quiz!</h1><div class='result'>Your score is "+score+" out of 5, "+score*20+"%.</div><img src='gm_en_g_1.png' alt='grammer picture'>");  
-    }); 
-    $(".button501").click(function(){
+  });
+  $(".button001").click(function(){
+        score=ansquestion(question1,".button01",".button02",score);
+     }
+  );
+  $(".button002").click(function(){
+        nextquestion(question1,question2,".button02",".button11","Two",score);
+    }
+  );
+  $(".button101").click(function(){
+    	score=ansquestion(question2,".button11",".button12",score);
+     }
+  );
+  $(".button102").click(function(){
+       nextquestion(question2,question3,".button12",".button21","Three",score);
+    }
+  );
+  $(".button201").click(function(){
+    	  score=ansquestion(question3,".button21",".button22",score);
+     }
+  );
+  $(".button202").click(function(){
+       nextquestion(question3,question4,".button22",".button31","Four",score);
+    }
+  );
+  $(".button301").click(function(){
+    	  score=ansquestion(question4,".button31",".button32",score);
+    }
+  );
+  $(".button302").click(function(){
+       nextquestion(question4,question5,".button32",".button41","Five",score);
+    }
+  );
+  $(".button401").click(function(){
+    	  score=ansquestion(question5,".button41",".button42",score);
+    }
+  );
+  $(".button402").click(function(){
+       nextquestion(question5,question5,".button42",".button51","Zero",score);
+     }
+  );
+  $(".button501").click(function(){
    	  $(".button51").hide();
    	  $("h1").hide();
    	  $(".result").hide();
@@ -207,6 +119,17 @@ $(document).ready(function(){
     }); 
   }
 );
+function addbuttons(values){
+     var buttons="<div class='button00'><input type='submit' class='button000' value='"+values[0]+"'></div>";
+     for(var i=0;i<4;i++){
+      buttons+="<div class='button"+i+"1'><input type='submit' class='button"+i+"01' value='"+values[1]+"'></div>";
+      buttons+="<div class='button"+i+"2'><input type='submit' class='button"+i+"02' value='"+values[2]+"'></div>";
+     }
+     buttons+="<div class='button41'><input type='submit' class='button401' value='"+values[1]+"'></div>";
+     buttons+="<div class='button42'><input type='submit' class='button402' value='"+values[3]+"'></div>";
+     buttons+="<div class='button51'><input type='submit' class='button501' value='"+values[4]+"'></div>";
+     return buttons;
+}
 function questions(name,part1,choice1,choice2,choice3,choice4,choice5,answer){
 	this.name=name;
 	this.part1=part1;
@@ -219,5 +142,35 @@ function questions(name,part1,choice1,choice2,choice3,choice4,choice5,answer){
 	this.question_con=function(){
        var content="<p>Choose the appropriate options to complete the sentence.</p><div class='Question1'>"+part1+"<br><input type='radio' name='"+name+"'value='"+choice1+"'>"+choice1+"<br><input type='radio' name='"+name+"'value='"+choice2+"'>"+choice2+"<br><input type='radio' name='"+name+"' value='"+choice3+"'>"+choice3+"<br><input type='radio' name='"+name+"' value='"+choice4+"'>"+choice4+"<br><input type='radio' name='"+name+"'value='"+choice5+"'>"+choice5+"<br>"; 
        return content;
-    };
+  };
+}
+function nextquestion(q1,q2,bu1,bu2,qnum,score){
+	  $("input:radio[name="+q1.name+"]:checked").removeAttr('checked');
+      $(bu1).hide();
+   	  $("h1").hide();
+   	  $("p").hide();
+   	  $(".Question1").hide();
+   	  $(bu2).show();
+   	  if(qnum!="Zero")
+        $(".holdplace").prepend("<h1>Quiz Question "+qnum+"</h1>"+q2.question_con());
+      else
+      	$(".holdplace").prepend("<h1>Congratulations! You have finished your quiz!</h1><div class='result'>Your score is "+score+" out of 5, "+score*20+"%.</div><img src='gm_en_g_1.png' alt='grammer picture'>");       
+}
+function ansquestion(q1,budiv1,budiv2,score){
+     var selected=$("input:radio[name="+q1.name+"]").is(":checked");
+       if(selected){
+   	   	  var selected_val=$("input:radio[name="+q1.name+"]:checked").val();
+   	   	  $(budiv1).hide();
+   	   	  $(budiv2).show();
+   	   	  if(selected_val==q1.answer){
+            $(budiv2).append("<div class='answers'>Correct, good job!</div>");
+            score+=1;
+          }
+          else
+            $(budiv2).append("<div class='answers'>Sorry, your answer is incorrect.</div>");
+          $("input:radio[name="+q1.name+"]").attr('disabled',true);
+       }
+  	   else
+  	      alert("Please select an answer first."); 
+  	   return  score;
 }
